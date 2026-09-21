@@ -11,7 +11,7 @@ Coloca aquí los 3 logotipos con estos nombres exactos (los usan las plantillas 
 ## Formato recomendado
 
 - **PNG con fondo transparente** (no SVG: muchos clientes de correo, sobre todo Outlook de escritorio, no lo soportan bien).
-- Resolución a 2x del tamaño final para que se vea nítido en pantallas retina. Las plantillas muestran el logo principal a 56px de alto y el de Hazitik a 24px, así que sube los archivos a **~112px y ~48px de alto** respectivamente (el ancho proporcional).
+- Resolución a 2x del tamaño final para que se vea nítido en pantallas retina. Las plantillas muestran el logo principal a 56px de alto y el de Hazitik a 32px, así que sube los archivos a **~112px y ~64px de alto** respectivamente (el ancho proporcional).
 - Peso ligero (menos de 50 KB por imagen) para que la firma cargue rápido.
 
 Una vez subidos aquí, las firmas los cargan automáticamente desde:
