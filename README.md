@@ -11,11 +11,44 @@ Firmas de correo sencillas y consistentes para las cuentas de webmail de Bizilor
 
 El logo de **Hazitik Kooperatiba** aparece en todas las firmas (más pequeño, debajo del logo principal), porque Bizilore y Bizijolas forman parte de la cooperativa.
 
+## Firmas ya generadas, listas para copiar
+
+Todas las cuentas de `datos/cuentas.xlsx` ya tienen su firma generada en `firmas/cuentas/`. Solo tienes que abrir el archivo que corresponda y copiar su contenido tal cual en Roundcube (ver [instalación](#3-instalar-la-firma-en-roundcube)), sin sustituir nada.
+
+| Cuenta | Archivo |
+|---|---|
+| `artezkaritza@bizilore.eus` | `firmas/cuentas/artezkaritza.html` |
+| `bizijolas@bizilore.eus` | `firmas/cuentas/bizijolas.html` |
+| `bizilore@bizilore.eus` (principal) | `firmas/cuentas/bizilore.html` |
+| `bizilorelagunak@bizilore.eus` | `firmas/cuentas/bizilorelagunak.html` |
+| `curriculum@bizilore.eus` | `firmas/cuentas/curriculum.html` |
+| `ekonomia@bizilore.eus` | `firmas/cuentas/ekonomia.html` |
+| `eskola@bizilore.eus` | `firmas/cuentas/eskola.html` |
+| `formazioa@bizilore.eus` | `firmas/cuentas/formazioa.html` |
+| `idazkaritza@bizilore.eus` | `firmas/cuentas/idazkaritza.html` |
+| `komunikazioa@bizilore.eus` | `firmas/cuentas/komunikazioa.html` |
+| `kukuherri.ge@bizilore.eus` | `firmas/cuentas/kukuherri.ge.html` |
+| `oharrak@bizilore.eus` | `firmas/cuentas/oharrak.html` |
+| `proiektuintegrala@bizilore.eus` | `firmas/cuentas/proiektuintegrala.html` |
+| `sareak.hazitik@bizilore.eus` | `firmas/cuentas/sareak.hazitik.html` |
+| `slaterpetxea@bizilore.eus` | `firmas/cuentas/slaterpetxea.html` |
+| `taloak@bizilore.eus` | `firmas/cuentas/taloak.html` |
+| `udalekuak@bizilore.eus` | `firmas/cuentas/udalekuak.html` |
+| `zaintza@bizilore.eus` | `firmas/cuentas/zaintza.html` |
+
+### Añadir o modificar una cuenta
+
+1. Edita `datos/cuentas.xlsx` (añade una fila nueva, o corrige un teléfono/cargo/dirección existente). Columnas: `Cuenta`, `Nombre apellidos`, `Cargo`, `Teléfono`, `Dirección`, `URL INSTAGRAM`.
+2. Ejecuta `python3 scripts/generar_firmas.py` — regenera todos los archivos de `firmas/cuentas/` a partir del Excel y de las plantillas base (`firmas/bizilore.html` / `firmas/bizijolas.html`). Las cuentas que empiezan por `bizijolas` usan la plantilla de Bizijolas; el resto, la de Bizilore.
+3. Sube los cambios al repositorio.
+
 ## Estructura del repositorio
 
 ```
-firmas/     → plantillas HTML de firma, una por marca
-logos/      → los 3 logotipos (bizilore.png, bizijolas.png, hazitik.png)
+datos/              → datos/cuentas.xlsx, la fuente de verdad de nombre/cargo/teléfono por cuenta
+firmas/             → plantillas base (bizilore.html, bizijolas.html) y firmas/cuentas/ con una firma ya rellenada por cuenta
+logos/              → los 3 logotipos (bizilore.png, bizijolas.png, hazitik.png)
+scripts/            → generar_firmas.py, regenera firmas/cuentas/ a partir del Excel
 ```
 
 ## 1. Añadir los logos
@@ -26,9 +59,9 @@ Sigue las instrucciones de [`logos/README.md`](logos/README.md) y sube ahí los 
 
 Es una solución rápida para empezar, pero para uso a largo plazo es más fiable alojar los logos en `bizilore.eus` (tu propio dominio) y apuntar ahí las URLs de `firmas/*.html` — así evitas depender de la disponibilidad de GitHub y de que algún filtro de correo bloquee esas URLs.
 
-## 2. Personalizar la firma de cada persona
+## 2. Personalizar la firma de una cuenta nueva (manual, sin pasar por el Excel)
 
-Abre el archivo HTML que corresponda (`firmas/bizilore.html` o `firmas/bizijolas.html`) y sustituye estos campos por los datos reales, borrando las llaves `{{ }}`:
+Si necesitas una firma puntual sin tocar `datos/cuentas.xlsx`, abre el archivo HTML que corresponda (`firmas/bizilore.html` o `firmas/bizijolas.html`) y sustituye estos campos por los datos reales, borrando las llaves `{{ }}`:
 
 - `{{NOMBRE APELLIDOS}}`
 - `{{Cargo}}`
